@@ -173,6 +173,8 @@ const Allposts = () => {
   if (loading) return <div className="text-center py-10">Loading...</div>;
   if (error) return <div className="text-center text-red-500">{error}</div>;
 
+  if(posts.length === 0) return <div className="flex justify-center items-center text-2xl font-bold">No Posts Availble</div>
+
   return (
     <div className="mb-5 md:px-10 px-4">
       <div className="h-[1px] w-full bg-gray-300 mb-6"></div>
@@ -181,8 +183,6 @@ const Allposts = () => {
         const author = typeof post.userId === "object" ? post.userId : null;
         if (!author?._id) return null;
         const userId = author._id;
-
-        if(posts.length === 0) return <div className="flex justify-center items-center text-2xl font-bold">No Posts Availble</div>
 
         return (
           <div key={post._id} className="mb-12 border-b border-gray-100 pb-8">
@@ -249,18 +249,10 @@ const Allposts = () => {
           </div>
         );
       })}
-      {activeComment && (
+      {activeComment && activeComment.post && (
         <GetCommentsPerPost
           id={activeComment.id}
-          post={{
-            ...activeComment.post!,
-            Author: [
-              {
-                name: activeComment.post!.userId.name,
-                role: activeComment.post!.userId.role,
-              },
-            ],
-          }}
+          post={activeComment.post}
           onClose={() => setActiveComment(null)}
         />
       )}
