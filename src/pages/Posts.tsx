@@ -88,7 +88,6 @@ const Posts = () => {
         };
       });
 
-      // update like state
       setLikeMap((prev) => ({
         ...prev,
         [postId]: liked,
