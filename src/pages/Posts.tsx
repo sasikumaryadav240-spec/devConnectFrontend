@@ -108,8 +108,8 @@ const Posts = () => {
     }
   }
 
-  
-  
+  const selectedPost = profileData?.postsData.find(p => p._id === activeCommentId);
+
   return (
     <div>
       <div className="flex-grow border-t border-gray-300"></div>
@@ -237,7 +237,7 @@ const Posts = () => {
           <GetCommentsPerPost 
             key={activeCommentId}
             id={activeCommentId} 
-            post={profileData?.postsData.find(p => p._id === activeCommentId)}
+            post={selectedPost}
             onClose={() => setActiveCommentId(null)} 
           />
         )}
