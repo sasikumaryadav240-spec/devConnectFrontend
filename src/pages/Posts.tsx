@@ -1,7 +1,7 @@
 import { MessageCircle, ThumbsUp, User } from "lucide-react"
 import { useEffect, useState } from "react"
 import { jwtDecode } from "jwt-decode";
-import { profilePostsApiService, type ApiResponse, type postsData} from "../ApiService/profilePostsApiService";
+import { profilePostsApiService, type ApiResponse, type postData} from "../ApiService/profilePostsApiService";
 import { formatTimeAgo } from "../components/profilePageComponents/timePosts";
 import PostCreate from "../components/profilePageComponents/PostCreate";
 import { PostDeleteApiService } from "../ApiService/PostCreateApiService";
@@ -18,7 +18,7 @@ const Posts = () => {
   const [ isLoading, setIsLoading ] = useState<boolean>(true);
   const [ isError, setIsError ] = useState("");
   const [ isMenuId, setIsMenuId ] = useState<string | null>(null);
-  const [postToEdit, setPostToEdit] = useState<postsData | null>(null);
+  const [postToEdit, setPostToEdit] = useState<postData | null>(null);
   const [activeCommentId, setActiveCommentId] = useState<string | null>(null);
   const [likeMap, setLikeMap] = useState<Record<string, boolean>>({});
 
@@ -143,7 +143,7 @@ const Posts = () => {
         {isError && <div className="text-center text-red-500 py-10">{isError}</div>}
 
         {profileData?.postsData.map((post) => {
-          const author = post.Author[0];
+          const author = post.userId;
 
           return (
             <div key={post._id} className="mb-12 border-b border-gray-100 pb-8">
