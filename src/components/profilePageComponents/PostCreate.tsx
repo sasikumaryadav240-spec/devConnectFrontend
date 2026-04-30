@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import PostCreateApiService, { PostUpdateApiService } from "../../ApiService/PostCreateApiService";
-import { type postsData } from "../../ApiService/profilePostsApiService"; 
+import { type postData } from "../../ApiService/profilePostsApiService"; 
 interface postprops {
     onClose : (value : boolean) => void;
-    post?: postsData | null;
+    post?: postData | null;
 }
 
 const PostCreate: React.FC<postprops> = ({ onClose, post }) => {
