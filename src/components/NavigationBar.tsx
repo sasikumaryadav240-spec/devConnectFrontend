@@ -1,55 +1,100 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/New-LogoLogin-removebg-preview.png";
-import { User, ChevronDown, LogOut } from "lucide-react";
+import {
+  User,
+  ChevronDown,
+  LogOut,
+  Search,
+  House,
+  Newspaper,
+  Users,
+} from "lucide-react";
 import SideBarAction from "./SideBarAction";
-import { useNavigate } from "react-router-dom";
 
 const NavigationBar = () => {
-    const navigation = useNavigate();
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        navigation("/", {replace : true})
-    }
-  return (
-    <div className="flex flex-row justify-between sticky top-0 z-[100] bg-white">
-        <div className="flex justify-start">
-            <div className="md:hidden flex items-center justify-center">
-                <SideBarAction/>
-            </div>
-            <img src={logo} className="w-[250px] h-[80px] p-0 m-0"/>
-        </div>
-            <nav className="hidden md:flex flex-row justify-between justify-center items-center content-around mr-[20px] gap-9 ">
-                <NavLink to="/Dashboard" className={({ isActive }) => isActive ? "text-xl font-semibold font-sans tracking-tight text-blue-800 cursor-pointer transition-colors" : "text-xl font-semibold font-sans tracking-tight text-gray-800 hover:text-blue-800 cursor-pointer transition-colors"}>
-                    Home
-                </NavLink>
-                <NavLink 
-                    to="/search" 
-                    className={({ isActive }) => 
-                    isActive ? "text-xl font-semibold font-sans tracking-tight text-blue-800 cursor-pointer transition-colors" : "text-xl font-semibold font-sans tracking-tight text-gray-800 hover:text-blue-800 cursor-pointer transition-colors hover:text-blue-400"
-                    }
-                >Search</NavLink>
-                <NavLink to="/following" className={({ isActive }) => 
-                isActive ? "text-xl font-semibold font-sans tracking-tight text-blue-800 cursor-pointer transition-colors" : "text-xl font-semibold font-sans tracking-tight text-gray-800 hover:text-blue-800 cursor-pointer transition-colors"
-                }>
-                    Following
-                </NavLink>
-                <NavLink to="/Posts" className={({ isActive }) => isActive ? "text-xl font-semibold font-sans tracking-tight text-blue-800 cursor-pointer transition-colors" : "text-xl font-semibold font-sans tracking-tight text-gray-800 hover:text-blue-800 cursor-pointer transition-colors"}>
-                    Posts
-                </NavLink>
-                <NavLink to="/Profile" className="flex flex-row text-xl gap-1 cursor-pointer">
-                    <User className="text-xl font-semibold font-sans tracking-tight bg-blue-300 w-8 h-8 p-1 rounded-3xl border-gray-500"/>
-                    <span className="text-gray-800">Profile</span>
-                    <ChevronDown className="text-gray-500"/>
-                </NavLink>
-            </nav>
-            <div className="md:hidden group relative flex justify-center items-center " onClick={() => handleLogout()}>
-                <LogOut size={24} className="md:hidden text-gray-700"/>
-                <span className="absolute top-12 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 font-bold">
-                    Logout
-                </span>
-            </div>
-    </div>
-  )
-}
+  const navigation = useNavigate();
 
-export default NavigationBar
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigation("/", { replace: true });
+  };
+
+  const navClass = ({ isActive }: { isActive: boolean }) =>
+    `flex items-center gap-2 text-[15px] font-semibold transition-all duration-200 ${
+      isActive
+        ? "text-blue-600"
+        : "text-gray-600 hover:text-blue-600"
+    }`;
+
+  return (
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 h-[75px] flex items-center justify-between">
+        <div className="flex items-center gap-3">
+
+          <div className="md:hidden">
+            <SideBarAction />
+          </div>
+
+          <img
+            src={logo}
+            alt="logo"
+            className="w-[180px] h-[65px] object-contain"
+          />
+        </div>
+        <nav className="hidden md:flex items-center gap-8">
+
+          <NavLink to="/Dashboard" className={navClass}>
+            <House size={18} />
+            Home
+          </NavLink>
+
+          <NavLink to="/search" className={navClass}>
+            <Search size={18} />
+            Search
+          </NavLink>
+
+          <NavLink to="/following" className={navClass}>
+            <Users size={18} />
+            Following
+          </NavLink>
+
+          <NavLink to="/Posts" className={navClass}>
+            <Newspaper size={18} />
+            Posts
+          </NavLink>
+        </nav>
+        <div className="flex items-center gap-5">
+          <NavLink
+            to="/Profile"
+            className="hidden md:flex items-center gap-2"
+          >
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-sm">
+              <User className="text-white w-5 h-5" />
+            </div>
+
+            <div className="flex items-center">
+              <span className="text-sm font-semibold text-gray-700">
+                Profile
+              </span>
+              <ChevronDown className="w-4 h-4 text-gray-500" />
+            </div>
+          </NavLink>
+          <button
+            onClick={handleLogout}
+            className="group relative flex items-center justify-center"
+          >
+            <div className="p-2 rounded-xl hover:bg-red-50 transition">
+              <LogOut className="w-5 h-5 text-gray-700 group-hover:text-red-500 transition" />
+            </div>
+
+            <span className="absolute top-12 scale-0 group-hover:scale-100 transition-all duration-200 rounded-lg bg-gray-900 px-3 py-1 text-xs text-white font-semibold">
+              Logout
+            </span>
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default NavigationBar;
