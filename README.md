@@ -80,13 +80,13 @@ npm install
 Create a `.env` file in the project root.
 
 ```env
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=Clone Another REepository of DevConnect Backend
 ```
 
 For production:
 
 ```env
-VITE_API_URL= Use your OWN API for the Backend to Store the data.
+VITE_API_URL= https://project-enms6.vercel.app/
 ```
 
 ---
@@ -172,14 +172,11 @@ This frontend communicates with the DevConnect REST API built using:
 
 ## 📸 Screenshots
 
-```
-/screenshots/Login.png
 
 ![image alt](https://github.com/sasikumaryadav240-spec/devConnectFrontend/blob/cee7c52fa220bf5f12483ba23aa6d9ff584c8f14/src/assets/Screenshot%202026-06-25%20125056.png)
 
 ![image alt](https://github.com/sasikumaryadav240-spec/devConnectFrontend/blob/c6f5283d0849c939152251362474bbf8c5238267/src/assets/original-b1976e7668518c43a2e459b0e74de974.jpg)
 
-```
 
 ---
 
