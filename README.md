@@ -175,9 +175,9 @@ This frontend communicates with the DevConnect REST API built using:
 ```
 /screenshots/Login.png
 
-![image alt](https://github.com/user-attachments/assets/dd72b174-0b60-4c92-9618-23d0a9900bf6)
+![image alt]([https://github.com/user-attachments/assets/dd72b174-0b60-4c92-9618-23d0a9900bf6](https://github.com/sasikumaryadav240-spec/devConnectFrontend/blob/cee7c52fa220bf5f12483ba23aa6d9ff584c8f14/src/assets/Screenshot%202026-06-25%20125056.png))
 
-![Login.png]([images/your-image-name.png](https://github.com/user-attachments/assets/dd72b174-0b60-4c92-9618-23d0a9900bf6))
+![image alt]([[images/your-image-name.png](https://github.com/user-attachments/assets/dd72b174-0b60-4c92-9618-23d0a9900bf6)](https://github.com/sasikumaryadav240-spec/devConnectFrontend/blob/c6f5283d0849c939152251362474bbf8c5238267/src/assets/original-b1976e7668518c43a2e459b0e74de974.jpg))
 
 <img width="1235" height="571" alt="Screenshot 2026-06-25 125056" src="https://github.com/user-attachments/assets/dd72b174-0b60-4c92-9618-23d0a9900bf6" />
 
