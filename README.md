@@ -172,10 +172,10 @@ This frontend communicates with the DevConnect REST API built using:
 
 ## 📸 Screenshots
 
-Add screenshots here.
-
 ```
 /screenshots/Login.png
+
+![Login.png]([images/your-image-name.png](https://github.com/user-attachments/assets/dd72b174-0b60-4c92-9618-23d0a9900bf6))
 
 <img width="1235" height="571" alt="Screenshot 2026-06-25 125056" src="https://github.com/user-attachments/assets/dd72b174-0b60-4c92-9618-23d0a9900bf6" />
 
